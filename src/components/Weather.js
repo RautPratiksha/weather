@@ -7,7 +7,6 @@ export default function Weather(props) {
     const [img, setImg] = useState("images/rain.png")
     let url = props.url
     const weather = async () => {
-        console.log('hi')
         var city1 = document.getElementById("search").value;
         const response = await fetch(url + city1);
         var data = await response.json();
