@@ -7,19 +7,19 @@ export default function Weather(props) {
     const [img, setImg] = useState("images/rain.png")
     let url = props.url
     const weather = async () => {
+        console.log('hi')
         var city1 = document.getElementById("search").value;
-        
         const response = await fetch(url + city1);
         var data = await response.json();
         setCity(city1)
+        console.log(data)
         setTemp(Math.round(data.main.temp));
         setHumidity(data.main.humidity);
         setWind(data.wind.speed);
-        console.log(data.weather[0].main)
         setImg("images/" + data.weather[0].main + ".png")
+
     }
     return (
-        <div className='root'>
             <div className="container">
                 <div className="search">
                     <input type="text" id="search" placeholder="search" />
@@ -49,6 +49,6 @@ export default function Weather(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        
     )
 }
